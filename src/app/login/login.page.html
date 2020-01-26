@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>
+      Email:
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="user.email" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      Password:
+    </ion-label>
+    <ion-input type="password" [(ngModel)]="user.password" required></ion-input>
+  </ion-item>
+  <ion-button size="large" (click)="onLogin()">Login</ion-button>
+  <ion-button size="large" routerLink="/register">Nuevo</ion-button>
+</ion-content>

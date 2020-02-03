@@ -14,15 +14,19 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth' 
 //impotacion del fichero enviroment
 import {environment} from './../environments/environment';
+//modulos para el api
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
+  //importamos el HttpClientModule
   imports: [BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule
 
   ],
   providers: [

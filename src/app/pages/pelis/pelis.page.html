@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary" align="center">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mi Contenido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-searchbar [(ngModel)]="term" (ionChange)="searchOMDb($event)">Busca tu serie favorita</ion-searchbar>
+<ion-item>
+  <ion-label>Categoria</ion-label>
+  <ion-select [(ngModel)]="type" (ionChange)="searchChanged($event)">
+    <ion-select-option seleted = "true" value="movie">Todas</ion-select-option>
+    <ion-select-option  value="movie" method=post>Peliculas</ion-select-option>
+    <ion-select-option  value="tv">TV</ion-select-option>
+    <ion-select-option  value="episode">Ninguna</ion-select-option>
+  </ion-select>
+</ion-item>
+
+  <ion-list>
+    <ion-item button *ngFor="let peli of (results | async)" [routerLink]="['/', 'peli',peli.id]">
+      <ion-avatar slot="start">
+        <img src="{{peli.backdrop_path}}" alt="{{peli.title}}" alt="{{peli.original_name}}" *ngIf ="peli.backdrop_path != 'N/A'">
+      </ion-avatar>
+      <ion-label text-wrap>
+        <h3>{{peli.title}}
+        </h3>
+        <h3>{{peli.original_name}}</h3>
+      </ion-label>
+      <ion-icon slot="end" *ngIf = "peli.Type === 'movie'" name="videocam"></ion-icon>
+      <ion-icon slot="end" *ngIf = "peli.Type === 'series'" name="tv" ></ion-icon>
+      <ion-icon slot="end" *ngIf = "peli.Type === 'episode'" name="table-portrait"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item button *ngFor="let peli of (resultsOMDB | async)" [routerLink]="['/', 'peli',peli.imdbID]">
+      <ion-avatar slot="start">
+        <img src="{{peli.Poster}}" alt="{{peli.Title}}" *ngIf ="peli.Poster != 'N/A'">
+      </ion-avatar>
+      <ion-label text-wrap>
+        <h3>{{peli.Title}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

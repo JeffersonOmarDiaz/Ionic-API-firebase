@@ -21,7 +21,7 @@ async onLogin (user:User){
   try {
     return await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
   } catch (error) {
-    console.log('Error de login user', error);
+    console.log('Error de autentcación user', error);
     
   }
 }

@@ -4,7 +4,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding align="center">
+  <div>
+    <h2 color="primary"><b>Cine & Series</b></h2>
+    <img src="https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" alt="portada" width="250" height="400">
+  </div>
   <ion-item>
     <ion-label>
       Email:
@@ -19,5 +23,5 @@
     <ion-input type="password" [(ngModel)]="user.password" required></ion-input>
   </ion-item>
   <ion-button size="large" (click)="onLogin()">Login</ion-button>
-  <ion-button size="large" routerLink="/register">Nuevo</ion-button>
+  <ion-button size="large" routerLink="/register" color="secondary">Registrarse</ion-button>
 </ion-content>
